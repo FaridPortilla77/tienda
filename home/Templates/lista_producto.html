@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block titulo %}
+    Lista de productos
+{% endblock %}
+
+
+    {% block contenido %}
+    <h1>Lista de productos</h1>
+    
+    <a class="btn btn-primary" href="{% url 'agregar_producto' %}">Agregar producto</a>
+    {% for p in lista %}
+    
+    <p>
+        ID: {{ p.id }}
+        {% if p.foto %}
+            <img src="/media/{{ p.foto }}" height="50px">
+        {% endif %}
+        Nombre: {{ p.nombre }}
+        Precio: {{ p.precio }}
+        Stock: {{ p.stock }}
+        Marca: {{ p.marca }}
+        <a href="/editar_producto/{{p.id}}">editar</a>
+        <a href="{% url 'editar_producto' id_prod=p.id %}">editar</a>
+        <a href="{% url 'ver_producto' id_prod=p.id %}">ver detalle</a>
+        <a href="{% url 'eliminar_producto' id_prod=p.id %}">eliminar detalle</a>
+    </p>
+    
+    
+    {% endfor %}
+    
+    
+    {% endblock %}
+
+    

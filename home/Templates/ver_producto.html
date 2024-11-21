@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block titulo %}
+    Ver detalle del producto
+{% endblock %}
+{% block contenido %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <!-- Título del producto -->
+                <h2 class="card-title text-center">{{ producto.nombre }}</h2>
+                
+                <!-- Lista de detalles del producto -->
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>ID:</strong> {{ producto.id }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Nombre:</strong> {{ producto.nombre }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Precio:</strong> ${{ producto.precio }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Stock disponible:</strong> {{ producto.stock }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Marca:</strong> {{ producto.marca }}
+                    </li>
+                </ul>
+                
+                <!-- Botones de acción -->
+                <div class="text-center mt-4">
+                    <a href="{% url 'editar_producto' id_prod=producto.id %}" class="btn btn-primary btn-lg mr-3" style="background-color: #1c5d99; border-color: #1c5d99;">Editar</a>
+                    <a href="{% url 'eliminar_producto' id_prod=producto.id %}" class="btn btn-danger btn-lg">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

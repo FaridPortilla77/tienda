@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}SportFit{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTICgZhkSX1elwMNpQUvedgkP2NP5M5FMXo6Q&s" height="50px" alt="SportFit Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">  <!-- ms-auto para alinear a la derecha -->
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'home' %}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'articulo' %}">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-4"> <!-- mt-4 para margen superior -->
+            {% block contenido %}
+            <!-- Contenido específico de cada página -->
+            {% endblock %}
+        </div>
+    </main>
+    <footer class="bg-light text-center py-3"> <!-- bg-light y py-3 para estilo de pie de página -->
+        <p>&copy; 2024 SportFit. Todos los derechos reservados.</p>
+    </footer>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script> <!-- Incluye bootstrap.bundle.js para los componentes -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
